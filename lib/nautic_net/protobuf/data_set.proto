@@ -1,6 +1,7 @@
 syntax = "proto3";
 import "google/protobuf/timestamp.proto";
 import "lib/nautic_net/protobuf/lora_packet.proto";
+import "lib/nautic_net/protobuf/device_command.proto";
 
 enum AngleReference {
   ANGLE_REFERENCE_NONE = 0;
@@ -46,6 +47,10 @@ message DataSet {
   string boat_identifier = 4;
   repeated NetworkDevice network_devices = 5;
   CommandAck ack = 6;
+  // The device's current output sample mode and race phase, so the server has
+  // visibility into the device's autonomous sampling state.
+  SampleMode sample_mode = 7;
+  RacePhase race_phase = 8;
 }
 
 message NetworkDevice {
