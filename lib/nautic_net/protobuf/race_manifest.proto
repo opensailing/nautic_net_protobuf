@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+// Device -> server race archive manifest, sent (on a DataSet upload) after a
+// race finishes so the server can verify archive completeness and request any
+// missing chunks. The server replies with manifest_verification_result /
+// missing_chunk_request (see device_command.proto).
+
+message ChunkDescriptor {
+  string chunk_id = 1;      // e.g. "0001"
+  uint64 byte_count = 2;
+  string checksum = 3;      // sha256 hex of the chunk bytes
+  uint32 sample_count = 4;  // number of sampled DataSets in the chunk
+}
+
+message RaceManifest {
+  string race_recording_id = 1;   // YYYY-MM-DD-N
+  string device_id = 2;
+  string assignment_id = 3;
+  uint32 assignment_version = 4;
+  google.protobuf.Timestamp started_at = 5;
+  google.protobuf.Timestamp finished_at = 6;
+  repeated ChunkDescriptor chunks = 7;
+  uint32 total_sample_count = 8;
+  string course_hash = 9;
+  string route_hash = 10;
+  string device_status = 11;       // e.g. "complete", "low_storage"
+}

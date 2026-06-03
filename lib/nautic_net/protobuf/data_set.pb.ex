@@ -86,6 +86,7 @@ defmodule NauticNet.Protobuf.DataSet do
   field(:ack, 6, type: NauticNet.Protobuf.CommandAck)
   field(:sample_mode, 7, type: NauticNet.Protobuf.SampleMode, json_name: "sampleMode", enum: true)
   field(:race_phase, 8, type: NauticNet.Protobuf.RacePhase, json_name: "racePhase", enum: true)
+  field(:manifest, 9, type: NauticNet.Protobuf.RaceManifest)
 end
 
 defmodule NauticNet.Protobuf.NetworkDevice do
