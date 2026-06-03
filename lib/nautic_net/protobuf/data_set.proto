@@ -45,11 +45,20 @@ message DataSet {
   string ref = 3;
   string boat_identifier = 4;
   repeated NetworkDevice network_devices = 5;
+  CommandAck ack = 6;
 }
 
 message NetworkDevice {
   uint64 hw_id = 1;
   string name = 2;
+}
+
+// Device -> server acknowledgement of the last applied server command, carried
+// on telemetry/heartbeat uploads. See device_command.proto.
+message CommandAck {
+  string command_id = 1;          // last applied command id
+  string assignment_id = 2;
+  uint32 assignment_version = 3;
 }
 
 message HeadingSample {
