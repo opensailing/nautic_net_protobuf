@@ -9,9 +9,9 @@ defmodule NauticNet.LoRaPacketTest do
 
     assert %NauticNet.Protobuf.LoRaPacket{
              __unknown_fields__: [],
-             hardwareID: 4_111_842_389,
+             hardware_id: 4_111_842_389,
              payload:
-               {:roverData,
+               {:rover_data,
                 %NauticNet.Protobuf.RoverData{
                   __unknown_fields__: [],
                   battery: 0,

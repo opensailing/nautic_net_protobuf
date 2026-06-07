@@ -1,7 +1,7 @@
 defmodule NauticNet.Protobuf.LoRaPacket do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, full_name: "LoRaPacket", protoc_gen_elixir_version: "0.16.1", syntax: :proto3
 
   oneof(:payload, 0)
 
@@ -27,7 +27,7 @@ end
 defmodule NauticNet.Protobuf.RoverData do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, full_name: "RoverData", protoc_gen_elixir_version: "0.16.1", syntax: :proto3
 
   field(:latitude, 1, type: :float)
   field(:longitude, 2, type: :float)
@@ -41,13 +41,16 @@ end
 defmodule NauticNet.Protobuf.RoverDiscovery do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, full_name: "RoverDiscovery", protoc_gen_elixir_version: "0.16.1", syntax: :proto3
 end
 
 defmodule NauticNet.Protobuf.RoverConfiguration do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf,
+    full_name: "RoverConfiguration",
+    protoc_gen_elixir_version: "0.16.1",
+    syntax: :proto3
 
   field(:slots, 1, repeated: true, type: :int32)
   field(:sbw, 2, type: :uint32)
@@ -57,5 +60,5 @@ end
 defmodule NauticNet.Protobuf.RoverReset do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, full_name: "RoverReset", protoc_gen_elixir_version: "0.16.1", syntax: :proto3
 end

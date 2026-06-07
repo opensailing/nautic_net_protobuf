@@ -15,7 +15,7 @@ defmodule NauticNet.Protobuf do
 
     values = Map.merge(defaults, Map.new(opts))
 
-    DataSet.new(values)
+    struct(DataSet, values)
   end
 
   defp new_ref do
@@ -33,8 +33,8 @@ defmodule NauticNet.Protobuf do
     Enum.chunk_while(
       data_points,
       new_data_set([], data_set_opts),
-      fn data_point, data_set ->
-        next_data_set = %DataSet{data_set | data_points: [data_point | data_set.data_points]}
+      fn data_point, %DataSet{} = data_set ->
+        next_data_set = %{data_set | data_points: [data_point | data_set.data_points]}
 
         if byte_size(DataSet.encode(next_data_set)) > max_bytes do
           next_opts = Keyword.put(data_set_opts, :counter, next_data_set.counter + 1)
@@ -52,7 +52,7 @@ defmodule NauticNet.Protobuf do
   Convert a DateTime to a standard Google protobuf Timestamp type.
   """
   def to_proto_timestamp(%DateTime{} = datetime) do
-    Google.Protobuf.Timestamp.new(seconds: DateTime.to_unix(datetime))
+    %Google.Protobuf.Timestamp{seconds: DateTime.to_unix(datetime)}
   end
 
   @doc """

@@ -1,7 +1,7 @@
 defmodule NauticNet.Protobuf.ChunkDescriptor do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, full_name: "ChunkDescriptor", protoc_gen_elixir_version: "0.16.1", syntax: :proto3
 
   field(:chunk_id, 1, type: :string, json_name: "chunkId")
   field(:byte_count, 2, type: :uint64, json_name: "byteCount")
@@ -12,7 +12,7 @@ end
 defmodule NauticNet.Protobuf.RaceManifest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, full_name: "RaceManifest", protoc_gen_elixir_version: "0.16.1", syntax: :proto3
 
   field(:race_recording_id, 1, type: :string, json_name: "raceRecordingId")
   field(:device_id, 2, type: :string, json_name: "deviceId")

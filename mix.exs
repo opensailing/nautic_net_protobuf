@@ -22,7 +22,7 @@ defmodule NauticNetInterop.MixProject do
   defp deps do
     [
       # Telemetry transport
-      {:protobuf, "~> 0.10.0"}
+      {:protobuf, "~> 0.16"}
     ]
   end
 end

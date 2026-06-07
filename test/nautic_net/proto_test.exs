@@ -40,24 +40,24 @@ defmodule NauticNet.ProtoTest do
 
   defp build_speed_points(count) do
     for _ <- 1..count do
-      DataPoint.new(
+      %DataPoint{
         timestamp: Protobuf.utc_now(),
-        sample: {:speed, SpeedSample.new(speed_m_s: :rand.uniform())}
-      )
+        sample: {:speed, %SpeedSample{speed_cm_s: :rand.uniform(100)}}
+      }
     end
   end
 
   defp build_position_points(count) do
     for _ <- 1..count do
-      DataPoint.new(
+      %DataPoint{
         timestamp: Protobuf.utc_now(),
         sample:
           {:position,
-           PositionSample.new(
+           %PositionSample{
              latitude: (:rand.uniform() - 0.5) * 180,
              longitude: (:rand.uniform() - 0.5) * 360
-           )}
-      )
+           }}
+      }
     end
   end
 end

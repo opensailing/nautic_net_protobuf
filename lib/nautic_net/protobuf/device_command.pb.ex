@@ -1,7 +1,11 @@
 defmodule NauticNet.Protobuf.SampleMode do
   @moduledoc false
 
-  use Protobuf, enum: true, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf,
+    enum: true,
+    full_name: "SampleMode",
+    protoc_gen_elixir_version: "0.16.1",
+    syntax: :proto3
 
   field(:SAMPLE_MODE_UNSPECIFIED, 0)
   field(:SAMPLE_MODE_OUTING_1HZ, 1)
@@ -12,7 +16,11 @@ end
 defmodule NauticNet.Protobuf.RacePhase do
   @moduledoc false
 
-  use Protobuf, enum: true, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf,
+    enum: true,
+    full_name: "RacePhase",
+    protoc_gen_elixir_version: "0.16.1",
+    syntax: :proto3
 
   field(:RACE_PHASE_UNSPECIFIED, 0)
   field(:RACE_PHASE_IDLE, 1)
@@ -26,7 +34,11 @@ end
 defmodule NauticNet.Protobuf.MarkRounding do
   @moduledoc false
 
-  use Protobuf, enum: true, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf,
+    enum: true,
+    full_name: "MarkRounding",
+    protoc_gen_elixir_version: "0.16.1",
+    syntax: :proto3
 
   field(:MARK_ROUNDING_UNSPECIFIED, 0)
   field(:MARK_ROUNDING_PORT, 1)
@@ -37,7 +49,7 @@ end
 defmodule NauticNet.Protobuf.LatLon do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, full_name: "LatLon", protoc_gen_elixir_version: "0.16.1", syntax: :proto3
 
   field(:latitude, 1, type: :double)
   field(:longitude, 2, type: :double)
@@ -46,7 +58,7 @@ end
 defmodule NauticNet.Protobuf.LineGeometry do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, full_name: "LineGeometry", protoc_gen_elixir_version: "0.16.1", syntax: :proto3
 
   field(:end_a, 1, type: NauticNet.Protobuf.LatLon, json_name: "endA")
   field(:end_b, 2, type: NauticNet.Protobuf.LatLon, json_name: "endB")
@@ -55,7 +67,7 @@ end
 defmodule NauticNet.Protobuf.CourseMark do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, full_name: "CourseMark", protoc_gen_elixir_version: "0.16.1", syntax: :proto3
 
   field(:code, 1, type: :string)
   field(:position, 2, type: NauticNet.Protobuf.LatLon)
@@ -66,7 +78,7 @@ end
 defmodule NauticNet.Protobuf.SamplingRules do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, full_name: "SamplingRules", protoc_gen_elixir_version: "0.16.1", syntax: :proto3
 
   field(:default_mode, 1,
     type: NauticNet.Protobuf.SampleMode,
@@ -84,7 +96,7 @@ end
 defmodule NauticNet.Protobuf.ServerReply do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, full_name: "ServerReply", protoc_gen_elixir_version: "0.16.1", syntax: :proto3
 
   field(:protocol_version, 1, type: :uint32, json_name: "protocolVersion")
   field(:device_id, 2, type: :string, json_name: "deviceId")
@@ -94,7 +106,7 @@ end
 defmodule NauticNet.Protobuf.DeviceCommand do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, full_name: "DeviceCommand", protoc_gen_elixir_version: "0.16.1", syntax: :proto3
 
   oneof(:payload, 0)
 
@@ -152,13 +164,13 @@ end
 defmodule NauticNet.Protobuf.NoopCommand do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, full_name: "NoopCommand", protoc_gen_elixir_version: "0.16.1", syntax: :proto3
 end
 
 defmodule NauticNet.Protobuf.RaceAssignment do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, full_name: "RaceAssignment", protoc_gen_elixir_version: "0.16.1", syntax: :proto3
 
   field(:boat_id, 1, type: :string, json_name: "boatId")
   field(:device_id, 2, type: :string, json_name: "deviceId")
@@ -194,7 +206,7 @@ end
 defmodule NauticNet.Protobuf.RouteUpdate do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf, full_name: "RouteUpdate", protoc_gen_elixir_version: "0.16.1", syntax: :proto3
 
   field(:route_request_id, 1, type: :string, json_name: "routeRequestId")
 
@@ -211,7 +223,10 @@ end
 defmodule NauticNet.Protobuf.ActiveWaypointUpdate do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf,
+    full_name: "ActiveWaypointUpdate",
+    protoc_gen_elixir_version: "0.16.1",
+    syntax: :proto3
 
   field(:active_mark_code, 1, type: :string, json_name: "activeMarkCode")
 end
@@ -219,7 +234,10 @@ end
 defmodule NauticNet.Protobuf.CancelAssignment do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf,
+    full_name: "CancelAssignment",
+    protoc_gen_elixir_version: "0.16.1",
+    syntax: :proto3
 
   field(:reason, 1, type: :string)
 end
@@ -227,7 +245,10 @@ end
 defmodule NauticNet.Protobuf.ManifestVerificationResult do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf,
+    full_name: "ManifestVerificationResult",
+    protoc_gen_elixir_version: "0.16.1",
+    syntax: :proto3
 
   field(:race_recording_id, 1, type: :string, json_name: "raceRecordingId")
   field(:complete, 2, type: :bool)
@@ -237,7 +258,10 @@ end
 defmodule NauticNet.Protobuf.MissingChunkRequest do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf,
+    full_name: "MissingChunkRequest",
+    protoc_gen_elixir_version: "0.16.1",
+    syntax: :proto3
 
   field(:race_recording_id, 1, type: :string, json_name: "raceRecordingId")
   field(:chunk_ids, 2, repeated: true, type: :string, json_name: "chunkIds")
@@ -246,7 +270,10 @@ end
 defmodule NauticNet.Protobuf.ServerTimeConfig do
   @moduledoc false
 
-  use Protobuf, syntax: :proto3, protoc_gen_elixir_version: "0.12.0"
+  use Protobuf,
+    full_name: "ServerTimeConfig",
+    protoc_gen_elixir_version: "0.16.1",
+    syntax: :proto3
 
   field(:server_time, 1, type: Google.Protobuf.Timestamp, json_name: "serverTime")
 end
