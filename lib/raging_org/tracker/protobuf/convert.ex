@@ -1,4 +1,4 @@
-defmodule NauticNet.Protobuf.Convert do
+defmodule RagingOrg.Tracker.Protobuf.Convert do
   @moduledoc """
   Unit conversion functions explicitly designed for working with Protobuf samples.
 

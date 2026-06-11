@@ -1,9 +1,9 @@
-defmodule NauticNet.Protobuf do
+defmodule RagingOrg.Tracker.Protobuf do
   @moduledoc """
   Protobof implementation concerns.
   """
 
-  alias NauticNet.Protobuf.DataSet
+  alias RagingOrg.Tracker.Protobuf.DataSet
 
   def new_data_set(data_points, opts \\ []) do
     defaults = %{

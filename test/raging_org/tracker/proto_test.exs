@@ -1,11 +1,11 @@
-defmodule NauticNet.ProtoTest do
+defmodule RagingOrg.Tracker.ProtoTest do
   use ExUnit.Case
 
-  alias NauticNet.Protobuf
-  alias NauticNet.Protobuf.DataSet
-  alias NauticNet.Protobuf.DataSet.DataPoint
-  alias NauticNet.Protobuf.PositionSample
-  alias NauticNet.Protobuf.SpeedSample
+  alias RagingOrg.Tracker.Protobuf
+  alias RagingOrg.Tracker.Protobuf.DataSet
+  alias RagingOrg.Tracker.Protobuf.DataSet.DataPoint
+  alias RagingOrg.Tracker.Protobuf.PositionSample
+  alias RagingOrg.Tracker.Protobuf.SpeedSample
 
   describe "chunk_into_data_sets/3" do
     test "works for single packets" do

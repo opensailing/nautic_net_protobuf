@@ -1,9 +1,9 @@
-defmodule NauticNetInterop.MixProject do
+defmodule RagingOrgTrackerProtobuf.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :nautic_net_protobuf,
+      app: :raging_org_tracker_protobuf,
       version: "0.1.0",
       elixir: "~> 1.13",
       start_permanent: Mix.env() == :prod,
@@ -22,7 +22,7 @@ defmodule NauticNetInterop.MixProject do
   defp deps do
     [
       # Telemetry transport
-      {:protobuf, "~> 0.16"}
+      {:protobuf, "~> 0.17"}
     ]
   end
 end

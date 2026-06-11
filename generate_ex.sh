@@ -1,14 +1,22 @@
 #! /bin/bash
+set -euo pipefail
 #
-# (Re-)generates protobuf Elixir modules from lib/nautic_net/proto/*.proto definition files. 
+# (Re-)generates protobuf Elixir modules from lib/raging_org/tracker/protobuf/*.proto definition files.
 #
 # Run this from the project root.
 #
 
-echo 'Genering Elixir from Protobuf definitions...'
-protoc --elixir_out=. --elixir_opt=package_prefix=NauticNet.Protobuf ./lib/nautic_net/protobuf/*.proto
+proto_dir="./lib/raging_org/tracker/protobuf"
+tmp_dir="$(mktemp -d)"
+generated_dir="$tmp_dir/raging_org/tracker/protobuf/lib/raging_org/tracker/protobuf"
+
+trap 'rm -rf "$tmp_dir"' EXIT
+
+echo 'Generating Elixir from Protobuf definitions...'
+protoc --elixir_out="$tmp_dir" --elixir_opt=package_prefix=RagingOrg.Tracker.Protobuf "$proto_dir"/*.proto
+cp "$generated_dir"/*.pb.ex "$proto_dir"/
 
 echo 'Formatting...'
-mix format ./lib/nautic_net/protobuf/*.pb.ex
+mix format "$proto_dir"/*.pb.ex
 
 echo 'Done!'

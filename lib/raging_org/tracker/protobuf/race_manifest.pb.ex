@@ -1,7 +1,7 @@
-defmodule NauticNet.Protobuf.ChunkDescriptor do
+defmodule RagingOrg.Tracker.Protobuf.ChunkDescriptor do
   @moduledoc false
 
-  use Protobuf, full_name: "ChunkDescriptor", protoc_gen_elixir_version: "0.16.1", syntax: :proto3
+  use Protobuf, full_name: "ChunkDescriptor", protoc_gen_elixir_version: "0.17.0", syntax: :proto3
 
   field(:chunk_id, 1, type: :string, json_name: "chunkId")
   field(:byte_count, 2, type: :uint64, json_name: "byteCount")
@@ -9,10 +9,10 @@ defmodule NauticNet.Protobuf.ChunkDescriptor do
   field(:sample_count, 4, type: :uint32, json_name: "sampleCount")
 end
 
-defmodule NauticNet.Protobuf.RaceManifest do
+defmodule RagingOrg.Tracker.Protobuf.RaceManifest do
   @moduledoc false
 
-  use Protobuf, full_name: "RaceManifest", protoc_gen_elixir_version: "0.16.1", syntax: :proto3
+  use Protobuf, full_name: "RaceManifest", protoc_gen_elixir_version: "0.17.0", syntax: :proto3
 
   field(:race_recording_id, 1, type: :string, json_name: "raceRecordingId")
   field(:device_id, 2, type: :string, json_name: "deviceId")
@@ -20,7 +20,7 @@ defmodule NauticNet.Protobuf.RaceManifest do
   field(:assignment_version, 4, type: :uint32, json_name: "assignmentVersion")
   field(:started_at, 5, type: Google.Protobuf.Timestamp, json_name: "startedAt")
   field(:finished_at, 6, type: Google.Protobuf.Timestamp, json_name: "finishedAt")
-  field(:chunks, 7, repeated: true, type: NauticNet.Protobuf.ChunkDescriptor)
+  field(:chunks, 7, repeated: true, type: RagingOrg.Tracker.Protobuf.ChunkDescriptor)
   field(:total_sample_count, 8, type: :uint32, json_name: "totalSampleCount")
   field(:course_hash, 9, type: :string, json_name: "courseHash")
   field(:route_hash, 10, type: :string, json_name: "routeHash")

@@ -1,8 +1,8 @@
 syntax = "proto3";
 import "google/protobuf/timestamp.proto";
-import "lib/nautic_net/protobuf/lora_packet.proto";
-import "lib/nautic_net/protobuf/device_command.proto";
-import "lib/nautic_net/protobuf/race_manifest.proto";
+import "lib/raging_org/tracker/protobuf/lora_packet.proto";
+import "lib/raging_org/tracker/protobuf/device_command.proto";
+import "lib/raging_org/tracker/protobuf/race_manifest.proto";
 
 enum AngleReference {
   ANGLE_REFERENCE_NONE = 0;

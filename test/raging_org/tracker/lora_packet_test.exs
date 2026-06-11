@@ -1,18 +1,18 @@
-defmodule NauticNet.LoRaPacketTest do
+defmodule RagingOrg.Tracker.LoRaPacketTest do
   use ExUnit.Case
 
-  alias NauticNet.Protobuf.LoRaPacket
+  alias RagingOrg.Tracker.Protobuf.LoRaPacket
 
   test "can decode base 16" do
     base16 = "0D55BC15F512120DB674274215634190C220F40128FC0C3001"
     binary = Base.decode16!(base16)
 
-    assert %NauticNet.Protobuf.LoRaPacket{
+    assert %RagingOrg.Tracker.Protobuf.LoRaPacket{
              __unknown_fields__: [],
              hardware_id: 4_111_842_389,
              payload:
                {:rover_data,
-                %NauticNet.Protobuf.RoverData{
+                %RagingOrg.Tracker.Protobuf.RoverData{
                   __unknown_fields__: [],
                   battery: 0,
                   cog: 1660,

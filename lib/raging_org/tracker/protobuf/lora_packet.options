@@ -1,5 +1,5 @@
 #
-# Used by Nanopb to generate C++ for nautic_net_tracker_mini
+# Used by Nanopb to generate C++ for tracker firmware
 #
 # Documentation: https://jpa.kapsi.fi/nanopb/docs/reference.html#generator-options
 #
