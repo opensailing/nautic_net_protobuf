@@ -1,4 +1,4 @@
-defmodule RagingOrg.Tracker.Protobuf.LoRaPacket do
+defmodule RacingOrg.Tracker.Protobuf.LoRaPacket do
   @moduledoc false
 
   use Protobuf, full_name: "LoRaPacket", protoc_gen_elixir_version: "0.17.0", syntax: :proto3
@@ -9,31 +9,31 @@ defmodule RagingOrg.Tracker.Protobuf.LoRaPacket do
   field(:serial_number, 5, type: :uint32, json_name: "serialNumber")
 
   field(:rover_data, 2,
-    type: RagingOrg.Tracker.Protobuf.RoverData,
+    type: RacingOrg.Tracker.Protobuf.RoverData,
     json_name: "roverData",
     oneof: 0
   )
 
   field(:rover_discovery, 3,
-    type: RagingOrg.Tracker.Protobuf.RoverDiscovery,
+    type: RacingOrg.Tracker.Protobuf.RoverDiscovery,
     json_name: "roverDiscovery",
     oneof: 0
   )
 
   field(:rover_configuration, 4,
-    type: RagingOrg.Tracker.Protobuf.RoverConfiguration,
+    type: RacingOrg.Tracker.Protobuf.RoverConfiguration,
     json_name: "roverConfiguration",
     oneof: 0
   )
 
   field(:rover_reset, 6,
-    type: RagingOrg.Tracker.Protobuf.RoverReset,
+    type: RacingOrg.Tracker.Protobuf.RoverReset,
     json_name: "roverReset",
     oneof: 0
   )
 end
 
-defmodule RagingOrg.Tracker.Protobuf.RoverData do
+defmodule RacingOrg.Tracker.Protobuf.RoverData do
   @moduledoc false
 
   use Protobuf, full_name: "RoverData", protoc_gen_elixir_version: "0.17.0", syntax: :proto3
@@ -47,13 +47,13 @@ defmodule RagingOrg.Tracker.Protobuf.RoverData do
   field(:battery, 7, type: :uint32)
 end
 
-defmodule RagingOrg.Tracker.Protobuf.RoverDiscovery do
+defmodule RacingOrg.Tracker.Protobuf.RoverDiscovery do
   @moduledoc false
 
   use Protobuf, full_name: "RoverDiscovery", protoc_gen_elixir_version: "0.17.0", syntax: :proto3
 end
 
-defmodule RagingOrg.Tracker.Protobuf.RoverConfiguration do
+defmodule RacingOrg.Tracker.Protobuf.RoverConfiguration do
   @moduledoc false
 
   use Protobuf,
@@ -66,7 +66,7 @@ defmodule RagingOrg.Tracker.Protobuf.RoverConfiguration do
   field(:sf, 3, type: :uint32)
 end
 
-defmodule RagingOrg.Tracker.Protobuf.RoverReset do
+defmodule RacingOrg.Tracker.Protobuf.RoverReset do
   @moduledoc false
 
   use Protobuf, full_name: "RoverReset", protoc_gen_elixir_version: "0.17.0", syntax: :proto3

@@ -1,6 +1,6 @@
-# RagingOrg.Tracker.Protobuf
+# RacingOrg.Tracker.Protobuf
 
-Shared protobuf definitions and Elixir modules for RagingOrg Tracker wire
+Shared protobuf definitions and Elixir modules for RacingOrg Tracker wire
 payloads.
 
 This package contains the schema contracts for telemetry data sets, LoRa packets,
@@ -9,10 +9,10 @@ so consuming projects can use the package without running `protoc`.
 
 ## Package
 
-- Mix app: `:raging_org_tracker_protobuf`
-- Elixir namespace: `RagingOrg.Tracker.Protobuf`
-- Proto files: `lib/raging_org/tracker/protobuf/*.proto`
-- Generated Elixir files: `lib/raging_org/tracker/protobuf/*.pb.ex`
+- Mix app: `:racing_org_tracker_protobuf`
+- Elixir namespace: `RacingOrg.Tracker.Protobuf`
+- Proto files: `lib/racing_org/tracker/protobuf/*.proto`
+- Generated Elixir files: `lib/racing_org/tracker/protobuf/*.pb.ex`
 
 ## Setup
 
@@ -34,8 +34,8 @@ Full install directions [here](https://grpc.io/docs/protoc-installation/) and [h
 ## Usage
 
 ```elixir
-alias RagingOrg.Tracker.Protobuf
-alias RagingOrg.Tracker.Protobuf.{DataSet, LoRaPacket}
+alias RacingOrg.Tracker.Protobuf
+alias RacingOrg.Tracker.Protobuf.{DataSet, LoRaPacket}
 
 data_set = Protobuf.new_data_set([], counter: 1, ref: "example")
 encoded_data_set = DataSet.encode(data_set)
@@ -68,11 +68,11 @@ regenerate the Elixir modules:
 mix test
 ```
 
-The generator emits modules with the `RagingOrg.Tracker.Protobuf` package prefix
-and writes them back into `lib/raging_org/tracker/protobuf/`.
+The generator emits modules with the `RacingOrg.Tracker.Protobuf` package prefix
+and writes them back into `lib/racing_org/tracker/protobuf/`.
 
 After merging a schema change, update dependent projects:
 
 ```sh
-mix deps.update raging_org_tracker_protobuf
+mix deps.update racing_org_tracker_protobuf
 ```

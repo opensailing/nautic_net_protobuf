@@ -1,9 +1,9 @@
-defmodule RagingOrgTrackerProtobuf.MixProject do
+defmodule RacingOrgTrackerProtobuf.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :raging_org_tracker_protobuf,
+      app: :racing_org_tracker_protobuf,
       version: "0.1.0",
       elixir: "~> 1.13",
       start_permanent: Mix.env() == :prod,

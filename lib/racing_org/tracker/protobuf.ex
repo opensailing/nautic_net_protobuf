@@ -1,9 +1,9 @@
-defmodule RagingOrg.Tracker.Protobuf do
+defmodule RacingOrg.Tracker.Protobuf do
   @moduledoc """
   Protobof implementation concerns.
   """
 
-  alias RagingOrg.Tracker.Protobuf.DataSet
+  alias RacingOrg.Tracker.Protobuf.DataSet
 
   def new_data_set(data_points, opts \\ []) do
     defaults = %{

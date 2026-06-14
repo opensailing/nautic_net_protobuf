@@ -1,11 +1,11 @@
-defmodule RagingOrg.Tracker.ProtoTest do
+defmodule RacingOrg.Tracker.ProtoTest do
   use ExUnit.Case
 
-  alias RagingOrg.Tracker.Protobuf
-  alias RagingOrg.Tracker.Protobuf.DataSet
-  alias RagingOrg.Tracker.Protobuf.DataSet.DataPoint
-  alias RagingOrg.Tracker.Protobuf.PositionSample
-  alias RagingOrg.Tracker.Protobuf.SpeedSample
+  alias RacingOrg.Tracker.Protobuf
+  alias RacingOrg.Tracker.Protobuf.DataSet
+  alias RacingOrg.Tracker.Protobuf.DataSet.DataPoint
+  alias RacingOrg.Tracker.Protobuf.PositionSample
+  alias RacingOrg.Tracker.Protobuf.SpeedSample
 
   describe "chunk_into_data_sets/3" do
     test "works for single packets" do
