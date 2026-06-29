@@ -91,6 +91,7 @@ message DeviceCommand {
     ManifestVerificationResult manifest_verification_result = 21;
     MissingChunkRequest missing_chunk_request = 22;
     ServerTimeConfig server_time_config = 23;
+    PolarTable polar_table = 24;
   }
 }
 
@@ -144,4 +145,38 @@ message MissingChunkRequest {
 
 message ServerTimeConfig {
   google.protobuf.Timestamp server_time = 1;
+}
+
+// A reference performance polar pushed to the device as low-frequency CONFIG
+// (not high-rate telemetry). Like the rest of this command contract — and unlike
+// data_set.proto's fixed-point telemetry — values use readable SI floats:
+// boat/wind speeds in m/s and wind angles in degrees. The grid is sparse and
+// authored once per boat/condition set, so float precision and self-describing
+// units beat the bytes saved by fixed-point ints here.
+message PolarTable {
+  string polar_id = 1;          // stable id of the source polar (boat/sail-config)
+  uint32 version = 2;           // monotonic; device ignores already-applied versions
+  repeated PolarRow rows = 3;   // one row per true wind speed (ascending tws)
+  repeated PolarOptimum optima = 4;  // per-TWS upwind/downwind VMG optima
+}
+
+// One true-wind-speed row of the polar grid.
+message PolarRow {
+  float tws_mps = 1;            // true wind speed, meters/second
+  repeated PolarCell cells = 2; // boat speed per true wind angle, ascending twa
+}
+
+// A single grid cell: boat speed at a given true wind angle for this row's TWS.
+message PolarCell {
+  float twa_deg = 1;            // true wind angle, degrees
+  float boat_speed_mps = 2;     // boat speed, meters/second
+}
+
+// Per-TWS velocity-made-good optima (best beat and run angles/speeds).
+message PolarOptimum {
+  float tws_mps = 1;            // true wind speed, meters/second
+  float beat_twa = 2;           // optimal upwind true wind angle, degrees
+  float beat_vmg = 3;           // upwind velocity made good, meters/second
+  float run_twa = 4;            // optimal downwind true wind angle, degrees
+  float run_vmg = 5;            // downwind velocity made good, meters/second
 }

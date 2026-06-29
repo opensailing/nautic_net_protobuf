@@ -169,6 +169,12 @@ defmodule RacingOrg.Tracker.Protobuf.DeviceCommand do
     json_name: "serverTimeConfig",
     oneof: 0
   )
+
+  field(:polar_table, 24,
+    type: RacingOrg.Tracker.Protobuf.PolarTable,
+    json_name: "polarTable",
+    oneof: 0
+  )
 end
 
 defmodule RacingOrg.Tracker.Protobuf.NoopCommand do
@@ -291,4 +297,45 @@ defmodule RacingOrg.Tracker.Protobuf.ServerTimeConfig do
     syntax: :proto3
 
   field(:server_time, 1, type: Google.Protobuf.Timestamp, json_name: "serverTime")
+end
+
+defmodule RacingOrg.Tracker.Protobuf.PolarTable do
+  @moduledoc false
+
+  use Protobuf, full_name: "PolarTable", protoc_gen_elixir_version: "0.17.0", syntax: :proto3
+
+  field(:polar_id, 1, type: :string, json_name: "polarId")
+  field(:version, 2, type: :uint32)
+  field(:rows, 3, repeated: true, type: RacingOrg.Tracker.Protobuf.PolarRow)
+  field(:optima, 4, repeated: true, type: RacingOrg.Tracker.Protobuf.PolarOptimum)
+end
+
+defmodule RacingOrg.Tracker.Protobuf.PolarRow do
+  @moduledoc false
+
+  use Protobuf, full_name: "PolarRow", protoc_gen_elixir_version: "0.17.0", syntax: :proto3
+
+  field(:tws_mps, 1, type: :float, json_name: "twsMps")
+  field(:cells, 2, repeated: true, type: RacingOrg.Tracker.Protobuf.PolarCell)
+end
+
+defmodule RacingOrg.Tracker.Protobuf.PolarCell do
+  @moduledoc false
+
+  use Protobuf, full_name: "PolarCell", protoc_gen_elixir_version: "0.17.0", syntax: :proto3
+
+  field(:twa_deg, 1, type: :float, json_name: "twaDeg")
+  field(:boat_speed_mps, 2, type: :float, json_name: "boatSpeedMps")
+end
+
+defmodule RacingOrg.Tracker.Protobuf.PolarOptimum do
+  @moduledoc false
+
+  use Protobuf, full_name: "PolarOptimum", protoc_gen_elixir_version: "0.17.0", syntax: :proto3
+
+  field(:tws_mps, 1, type: :float, json_name: "twsMps")
+  field(:beat_twa, 2, type: :float, json_name: "beatTwa")
+  field(:beat_vmg, 3, type: :float, json_name: "beatVmg")
+  field(:run_twa, 4, type: :float, json_name: "runTwa")
+  field(:run_vmg, 5, type: :float, json_name: "runVmg")
 end
